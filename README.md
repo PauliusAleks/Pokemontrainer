@@ -16,6 +16,7 @@ In this assignment we built a Pokemon Trainer web app using the Angular Framewor
 * Vercel
 * Railway
 * Figma
+* Postman
 
 ## Hosting
 ![Status](https://therealsujitk-vercel-badge.vercel.app/?app=(filename)))
