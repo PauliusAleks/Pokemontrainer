@@ -4,19 +4,19 @@ export class StorageUtil {
         sessionStorage.setItem(key, JSON.stringify(value));
     }
     
-    public static storageRead<T>(key: string): T | null {
+    public static storageRead<T>(key: string): T | undefined {
         const storedValue = sessionStorage.getItem(key);
         try {
             if (storedValue) {
                 return JSON.parse(storedValue) as T;
             }
             else {
-                return null;
+                return undefined;
             }
         }
         catch(e){
             sessionStorage.removeItem(key);
-            return null;
+            return undefined;
         }
     }
 }
