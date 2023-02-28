@@ -14,8 +14,8 @@ export class PokemonCatalogueService {
   ) { }
   
   // Gets a specific amount of pokemons
-  getPokemons(limit: number) {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
+  getPokemons(limit: number, offset: number) {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
   }
 
   // Gets a specific pokemon
