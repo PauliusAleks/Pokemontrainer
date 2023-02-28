@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.serv
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit {
-  pokeList: any[] = [];
+  @Input() pokeList: any[] = [];
 
   constructor(
     private pokemonCatalogueService: PokemonCatalogueService
@@ -17,12 +17,13 @@ export class PokemonListComponent implements OnInit {
     this.getPokemons();
   }
   getPokemons() {
-    this.pokemonCatalogueService.getPokemons(6)
+    this.pokemonCatalogueService.getPokemons(12)
       .subscribe((response: any) => {
         response.results.forEach((result: { name: string; }) => {
-          this.pokemonCatalogueService.getPokemon(result.name).subscribe((uniqueResponse: any) => {
-            this.pokeList.push(uniqueResponse);
-            console.log(this.pokeList)
+          this.pokemonCatalogueService.getPokemon(result.name)
+            .subscribe((uniqueResponse: any) => {
+              this.pokeList.push(uniqueResponse);
+              console.log(this.pokeList)
         })
       })
     })
