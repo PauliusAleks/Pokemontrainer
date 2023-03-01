@@ -35,7 +35,6 @@ export class PokemonListComponent implements OnInit {
             .getPokemon(result.name)
             .subscribe((uniqueResponse: any) => {
               this.pokeList.push(uniqueResponse);
-              console.log(this.pokeList)
             });
         });
       });

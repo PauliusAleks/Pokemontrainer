@@ -53,8 +53,8 @@ export class LoginService {
       "x-api-key": apiKey
     });
 
+    //POST - create trainer on server
     return this.http.post<Trainer>(apiUrl, trainer, {headers})
-    //POST - create items on server
   }
 
 
