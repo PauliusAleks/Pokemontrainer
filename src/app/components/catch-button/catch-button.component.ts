@@ -14,7 +14,7 @@ export class CatchButtonComponent implements OnInit{
   
 public isCaught: boolean = false;
 
-@Input() pokemonName: string = "";
+@Input() pokemon: string = "";
 
 get loading(): Boolean {
   return this.catchService.loading;
@@ -26,15 +26,15 @@ get loading(): Boolean {
   ) { }
 
   ngOnInit(): void {
-    this.isCaught = Boolean(this.trainerService.trainer?.pokemon.some(pokemon => pokemon === this.pokemonName))
+    this.isCaught = Boolean(this.trainerService.trainer?.pokemon.some(pokemon => pokemon === this.pokemon))
   }
 
   onCatchClick(): void {
     //Add pokemon to api
-    this.catchService.addPokemonToApi(this.pokemonName)
+    this.catchService.addPokemonToApi(this.pokemon)
       .subscribe({
         next: (response: Trainer) => {
-          this.isCaught = this.trainerService.inApi(this.pokemonName)
+          this.isCaught = this.trainerService.inApi(this.pokemon)
         },
         error: (error:HttpErrorResponse) => {
           console.log("ERROR", error.message);

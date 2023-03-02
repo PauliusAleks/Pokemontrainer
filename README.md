@@ -6,7 +6,7 @@ In this assignment we built a Pokemon Trainer web app using the Angular Framewor
 
 
 ## Component tree
-![Component_tree_of_Pokemon_Trainer_app](/uploads/29365805bd8756e15a1e2ab437ca53e3/Component_tree_of_Pokemon_Trainer_app.png)
+![Pokemon_trainer_component_tree](/uploads/573b15b4d8d88d91f23a38387965b981/Pokemon_trainer_component_tree.PNG)
 
 ## Technologies
 * Angular
