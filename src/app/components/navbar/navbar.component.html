@@ -1,0 +1,26 @@
+<div class ="bg-green-500 flex justify-between items-center p-4 sticky top-0 w-full border-b-green-700 z-50" >
+    <ng-container *ngIf="trainer == undefined">
+    <ul class="block m-auto">
+        <li>
+            <img src="/assets/pokedex_logo.png" alt="Pokemon Logo"/>
+        </li>
+    </ul>
+    </ng-container>
+    <ng-container *ngIf="trainer !== undefined">
+    <ul class="block m-auto">
+        <li>
+            <img src="/assets/catch_all.png" alt="Pokemon Logo"/>
+        </li>
+    </ul>
+</ng-container>
+</div>
+<nav>
+    <ng-container *ngIf="trainer!== undefined">
+        <ul class="bg-green-600 mb-2 p-3">
+            <li class="text-2xl text-center">
+                <a routerLink="pokemons">Pokemons |</a>
+                <a routerLink="trainer">   {{trainer.username}}'s pokedex 📇</a>
+            </li>
+        </ul>
+    </ng-container>
+</nav>

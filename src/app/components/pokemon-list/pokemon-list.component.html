@@ -1,0 +1,27 @@
+<div  class="bg-yellow-100">
+    <div class="text-center pb-5 text-3xl text-green-600 ">
+        <h1>National Pokedex - Catch'em all!</h1>
+    </div>
+    <div id="showDetails-button">
+        <button *ngIf="!display" (click)="displayDetails()">Display details</button>
+        <button *ngIf="display" (click)="hideDetails()">Hide details</button>
+    </div>
+    <div class="pokemon-grid bg-yellow-100">
+        <div class="box bg-white rounded relative" 
+        *ngFor="let poke of pokeList | paginate: {itemsPerPage: 10, currentPage: page, totalItems: totalPokemons}">
+            <app-catch-button [pokemon]="poke.name"></app-catch-button>
+            <img [src]="poke.sprites.front_default" alt="Pokemon">
+            <h2><b> {{poke.name.charAt(0).toUpperCase() + poke.name.substring(1)}}</b></h2>
+            <h5 class="absolute top-4 left-4">#0{{poke.id}}</h5>
+            <span *ngIf="display">
+                <p><b>Type:</b> {{poke.types[0].type.name}}</p>
+                <p><b>height:</b> {{poke.height}}</p>
+                <p><b>health:</b> {{poke.stats[0].base_stat}}</p>
+                <p><b>Attack Power:</b> {{poke.stats[1].base_stat}}</p>
+            </span>
+        </div>
+    </div>
+</div>
+<pagination-controls (pageChange)="page = $event; pokeList = []; getPokemons()"></pagination-controls>
+
+

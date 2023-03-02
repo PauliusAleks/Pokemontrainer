@@ -1,0 +1,9 @@
+<aside class="absolute top-4 right-4 w-7">
+        <ng-component *ngIf="isCaught; then caught else empty"></ng-component>
+        <ng-template #empty>
+            <button (click)="onCatchClick()"><img src="/assets/pokeball_empty.png" alt="empty"></button>
+        </ng-template>
+        <ng-template #caught>
+            <button (click)="onCatchClick()"><img src="/assets/pokeball_caught.png" alt="Caught"></button>
+        </ng-template>
+</aside>

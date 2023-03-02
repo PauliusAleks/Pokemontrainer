@@ -1,34 +1,42 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { LandingPage } from "./pages/landing/landing.page";
+import { AuthGuard } from "./guards/auth.guard";
+import { LoginPage } from "./pages/login/login.page";
 import { PokemonCataloguePage } from "./pages/pokemon-catalogue/pokemon-catalogue.page";
 import { TrainerPage } from "./pages/trainer/trainer.page";
 
 
 const routes: Routes = [
-{
-    path: "",
-    component: LandingPage
-},
-{
-    path: "pokemons",
-    component: PokemonCataloguePage
-},
-{
-    path: "trainer",
-    component: TrainerPage
-}
+    {
+        path: "",
+        pathMatch:"full",
+        redirectTo: "/pokemons"
+    },
+    {
+        path: "login",
+        component: LoginPage
+    },
+    {
+        path: "pokemons",
+        component: PokemonCataloguePage,
+        canActivate: [ AuthGuard ]
+    },
+    {
+        path: "trainer",
+        component: TrainerPage,
+        canActivate: [ AuthGuard ]
+    }
 ]
 
 @NgModule({
     imports: [
+        //Import a module
         RouterModule.forRoot(routes)
-    ], //Import a module
+    ], 
     exports: [
+        //Expose module and its features
         RouterModule
-    ] //Expose module and its features
+    ] 
 
 })
-export class AppRoutingModule{
-
-}
+export class AppRoutingModule{}
