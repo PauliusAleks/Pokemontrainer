@@ -19,7 +19,11 @@ export class LoginFormComponent {
     private readonly trainerService: TrainerService
     ) { }
 
+  
+
+
   public loginSubmit(loginForm: NgForm): void {
+    
     //Get username
     const {username} = loginForm.value;
 
@@ -30,9 +34,7 @@ export class LoginFormComponent {
           this.trainerService.trainer = trainer;
           this.login.emit();
         },
-        error: () => {
-          //Handle error locally
-        }
+        error: () => {}
       })
   }
 
