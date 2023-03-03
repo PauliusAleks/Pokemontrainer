@@ -55,15 +55,5 @@ export class TrainerPage implements OnInit {
       window.location.reload();
     }
   }
-  
-  removeTrainer() {
-    const trainer = this.trainerService.trainer;
-    if(trainer !== undefined && window.confirm("!WARNING! Your account will be deleted! \n Are you sure?")){
-      this.trainerService.removeTrainer(trainer);
-      window.location.reload();
-      }
-    }
-
-
 }
 

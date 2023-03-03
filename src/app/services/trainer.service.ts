@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { StorageKeys } from '../enums/storage-keys.enum';
-import { Pokemon } from '../models/pokemon.model';
 import { Trainer } from '../models/trainer.model';
 import { StorageUtil } from '../utils/storage.util';
 
@@ -26,13 +25,7 @@ export class TrainerService {
     this._trainer = StorageUtil.storageRead<Trainer>(StorageKeys.Trainer);
   }
 
-  //Function to remove trainer from the sessionStorage
-  public removeTrainer(trainer: Trainer) {
-    StorageUtil.storageDelete<Trainer>(StorageKeys.Trainer, trainer.username, this.httpClient, () => {
-      this._trainer = undefined; //set local trainer to undefined.
-      window.location.reload();
-    });
-  }
+
   
 
   //Helper function to check if trainers owns a pokemon.

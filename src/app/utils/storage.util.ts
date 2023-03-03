@@ -1,7 +1,5 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
-import { Trainer } from "../models/trainer.model";
+import { HttpClient } from "@angular/common/http";
+
 
 
 export class StorageUtil {
@@ -29,43 +27,6 @@ export class StorageUtil {
             return undefined;
         }
     }
-
-
-    // public storageRemove(username: string): Observable<Trainer> {
-    //     const apiKey = environment.apiKey
-    //     const apiUrl = environment.apiUrl
-    //     const headers = new HttpHeaders({
-    //         "content-type": "application/json",
-    //         "x-api-key": apiKey
-    //     });
-    //     return this.httpClient.delete<Trainer>(apiUrl + `/${username}`, {headers})
-    // }
-
-    //!!!!!!!!!!!!!!!!
-    public static storageDelete<T>(key: string, username: string, httpClient: HttpClient, callback: () => void): void {
-        const trainer = StorageUtil.storageRead<T>(key);
-
-        if(trainer) {
-            const apiUrl = `${environment.apiUrl}?username=${username}`;
-            const headers = new HttpHeaders({
-                'content-type': 'application/json',
-                'x-api-key': environment.apiUrl
-            });
-            const options = { headers: headers };
-        
-
-            httpClient.delete(apiUrl, options).subscribe(
-              () => {
-                console.log(`Trainer ${username} deleted from API`);
-                callback();
-            },
-            error => console.error(`Error deleting user ${username} from API: ${error}`)
-            );
-        }
-        sessionStorage.removeItem(key)
-    }
-
-
 }
     
 
