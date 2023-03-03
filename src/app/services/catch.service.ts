@@ -24,6 +24,7 @@ export class CatchService {
     private readonly http: HttpClient,
   ) { }
 
+  //Adding pokemons to the api (trainer.pokemon[])
   public addPokemonToApi(name: string): Observable<Trainer> {
     if(!this.trainerService.trainer){
       throw new Error("addPokemonToApi: There is no user")
@@ -50,6 +51,7 @@ export class CatchService {
 
     this._loading = true;
 
+    // Updating trainer's pokemons
     return this.http.patch<Trainer>(`${apiUrl}/${trainer.id}`, {
       pokemon: [...trainer.pokemon]
     }, {

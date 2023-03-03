@@ -13,7 +13,7 @@ import { TrainerService } from 'src/app/services/trainer.service';
 export class TrainerPage implements OnInit {
 
   @Input() pokemonName: string = "";
-  pokemonOwned: any[] = [];
+  pokemonOwned: any[] = []; //list of ownedPokemons
 
   constructor(
     private readonly trainerService: TrainerService,
@@ -26,7 +26,7 @@ export class TrainerPage implements OnInit {
   }
 
 
-  get pokemons(): string[] {
+  get pokemons(): string[] { // trainers's pokemons (list of pokemon names)
     if (this.trainerService.trainer) {
       return this.trainerService.trainer.pokemon
     }
