@@ -28,13 +28,13 @@ get loading(): Boolean {
   ngOnInit(): void {
     this.isCaught = Boolean(this.trainerService.trainer?.pokemon.some(pokemon => pokemon === this.pokemon))
   }
-
+  //Handling pokemon catch (clicking on pokeball)
   onCatchClick(): void {
     //Add pokemon to api
-    this.catchService.addPokemonToApi(this.pokemon)
+    this.catchService.addPokemonToApi(this.pokemon)//using catchService to add Pokemon to user.
       .subscribe({
         next: (response: Trainer) => {
-          this.isCaught = this.trainerService.inApi(this.pokemon)
+          this.isCaught = this.trainerService.inApi(this.pokemon)//
         },
         error: (error:HttpErrorResponse) => {
           console.log("ERROR", error.message);

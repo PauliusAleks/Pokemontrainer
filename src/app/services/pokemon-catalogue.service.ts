@@ -27,8 +27,4 @@ export class PokemonCatalogueService {
   getPokemon(name: string) {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
   }
-
-  public getPokemonByName(name: string): Pokemon | undefined {
-    return this._pokemons.find((pokemon: Pokemon) => pokemon.name === name)
-  }
 }

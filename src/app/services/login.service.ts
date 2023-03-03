@@ -10,6 +10,7 @@ const {apiUrl, apiKey} = environment;
 @Injectable({
   providedIn: 'root'
 })
+//service class to handle login to the app.
 export class LoginService {
 
   //Dependency Injection.
@@ -56,6 +57,4 @@ export class LoginService {
     //POST - create trainer on server
     return this.http.post<Trainer>(apiUrl, trainer, {headers})
   }
-
-
 }

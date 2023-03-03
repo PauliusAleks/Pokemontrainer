@@ -19,5 +19,6 @@ export class AppComponent implements OnInit{
       this.pokemonCatalogueService.getPokemons(40, 1);
     }
   }
+
 }
 
