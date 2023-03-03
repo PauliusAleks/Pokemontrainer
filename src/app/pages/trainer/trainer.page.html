@@ -1,13 +1,14 @@
 <div>
     <header class="flex">
-        <h1 class="justify-center m-auto" *ngIf="trainer">
+        <h1 class="justify-center m-auto" *ngIf="trainer"> 
             <b>
-                Hello {{trainer.username}}!
-                <p *ngIf="pokemons.length !== 0"> Here are all you pokemons:</p> 
-                <p *ngIf="pokemons.length === 0"> You have not caught any pokemons yet!  <a routerLink="/pokemons">-Click here to catch some pokemons!-</a></p> 
+                <p class="text-center">Hello {{trainer.username}}!</p>       
+                <p *ngIf="pokemons.length !== 0"> Here are all you pokemons:</p>      
+                <p class="text-red-500 mt-3" *ngIf="pokemons.length === 0"> ⚠️You have not caught any pokemons yet!⚠️ </p>
+                <p class="text-center text-green-500 mt-4" *ngIf="pokemons.length === 0"><a routerLink="/pokemons">→ Click here to catch some pokemons! ←</a></p> 
             </b>
-        </h1>
-        <button class="absolute right-5" id="logout-button" routerLink="/" (click)="logout()">Log out</button>  
+        </h1>                                                                                           
+        <button class="absolute right-5" id="logout-button" (click)="logout()">Log out</button>  
     </header>
     <div class="container mx-auto p-4">
         <ul class=" p-2">
