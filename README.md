@@ -17,8 +17,7 @@ This Component Tree was created before a single line of code was written.
 * Postman
 
 ## Hosting
-![Status](https://therealsujitk-vercel-badge.vercel.app/?app=(filename)))
-[**Link to Vercel hosted project**](link comes here)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d8475c6c-9e90-4686-96de-4fa8b7b7f191/deploy-status)](https://jarandpaulpokemon.netlify.app)
 
 ## Contributors
 * <a href="https://www.linkedin.com/in/jarand-larsen-58852a257/">Jarand Larsen</a>
