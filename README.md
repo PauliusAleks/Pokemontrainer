@@ -1,9 +1,6 @@
 # Create a Pokémon Trainer using Angular
 ## Description
-In this assignment we built a Pokemon Trainer web app using the Angular Framework. The purpose of this assignment was to get a better understanding about Angular Framework and TypeScript. This application allows users to create a user in our JSON server that is hosted using <a href="https://vercel.com/">Vercel</a>. After login users are sent to Pokemon catalogue, that is loaded with pokemons from the <a href="https://pokeapi.co/">PokeAPI</a>. Users can then "catch" a pokemon of their choise. The pokemon will be added to their profile.
-
-## Requirements for the Pokémon Trainer app
-
+In this assignment we built a Pokemon Trainer web app using the Angular Framework. The purpose of this assignment was to get a better understanding about Angular Framework and TypeScript. This application allows users to create a user in our JSON server that is hosted using <a href="https://vercel.com/">Vercel</a>. After login users are sent to Pokemon catalogue, that is loaded with pokemons from the <a href="https://pokeapi.co/">PokeAPI</a>. Users can then "catch" pokemons of their choise. The pokemons will be added to their Pokedex and displayed in profile page. The user can then remove pokemons or logout from the app.
 
 ## Component tree
 This Component Tree was created before a single line of code was written.
