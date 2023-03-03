@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon.model';
+import { Trainer } from 'src/app/models/trainer.model';
+import { LogoutService } from 'src/app/services/logout.service';
+import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.service';
+import { TrainerService } from 'src/app/services/trainer.service';
 
 
 @Component({
@@ -6,7 +11,65 @@ import { Component } from '@angular/core';
   templateUrl: './trainer.page.html',
   styleUrls: ['./trainer.page.css']
 })
-export class TrainerPage{
+export class TrainerPage implements OnInit {
+
+  // @Input() pokemonName: string = "";
+  // pokemonOwned: any[] = [];
+
+  constructor(
+    private readonly trainerService: TrainerService,
+    private readonly pokemonCatalogueService: PokemonCatalogueService,
+    private readonly logoutService: LogoutService
+  ){ }
+
+  get trainer(): Trainer | undefined {
+    return this.trainerService.trainer
+  }
+
+  // get caught(): Pokemon[] {
+  //   let pokemonList = [];
+  //   let pokemonStringList = this.caughtString;
+  //   if()
+  // }
+
+
+  // get pokemons(): string[] {
+  //   if (this.trainerService.trainer) {
+  //     return this.trainerService.trainer.pokemon
+  //   }
+  //   return [];
+  // }
+  
+
+  // getPokemons() {
+  //   if(this.trainerService.trainer) {
+  //     this.trainerService.trainer.pokemon.forEach((name: string) => {
+  //       this.pokemonCatalogueService.getPokemon(name)
+  //         .subscribe((uniqueResponse: any) => {
+  //           this.pokemonOwned.push(uniqueResponse);
+  //         })
+  //     })
+  //   }
+  // }
+
+  ngOnInit(): void {
+  }
+
+  logout() {
+    if(window.confirm("You will be logged out. Are you sure?")) {
+      this.logoutService.logout()
+      window.location.reload();
+    }
+  }
+  
+  removeTrainer() {
+    const trainer = this.trainerService.trainer;
+    if(trainer !== undefined && window.confirm("!WARNING! Your account will be deleted! \n Are you sure?")){
+      this.trainerService.removeTrainer(trainer);
+      window.location.reload();
+      }
+    }
+
 
 }
 

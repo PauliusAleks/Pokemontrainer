@@ -1,8 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { Pokemon } from '../models/pokemon.model';
 import { Trainer } from '../models/trainer.model';
 import { StorageUtil } from '../utils/storage.util';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +22,18 @@ export class TrainerService {
     this._trainer = trainer;
   }
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this._trainer = StorageUtil.storageRead<Trainer>(StorageKeys.Trainer);
   }
+
+  public removeTrainer(trainer: Trainer) {
+    StorageUtil.storageDelete<Trainer>(StorageKeys.Trainer, trainer.username, this.httpClient, () => {
+      this._trainer = undefined;
+      window.location.reload();
+    });
+  }
+  
+
 
   public inApi(pokemonName: string): boolean {
     if (this._trainer){
@@ -43,3 +54,4 @@ export class TrainerService {
     }
   }
 }
+
