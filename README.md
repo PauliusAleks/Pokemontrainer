@@ -11,13 +11,16 @@ This Component Tree was created before a single line of code was written.
 * TypeScript
 * CSS
 * HTML
-* Vercel
+* Netlify
 * Railway
 * Figma
 * Postman
 
 ## Hosting
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d8475c6c-9e90-4686-96de-4fa8b7b7f191/deploy-status)](https://jarandpaulpokemon.netlify.app)
+
+## Packages to unstall
+vscode, jsnode, npm, angular cli & tailwind.
 
 ## Contributors
 * <a href="https://www.linkedin.com/in/jarand-larsen-58852a257/">Jarand Larsen</a>
