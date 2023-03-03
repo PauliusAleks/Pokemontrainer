@@ -25,6 +25,7 @@ export class PokemonListComponent implements OnInit {
     this.display = false; //hide added details
   }
 
+  // Retrieving pokemons, 40 per page
   getPokemons() {
     this.pokemonCatalogueService
       .getPokemons(40, this.page + 0)

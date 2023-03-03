@@ -19,18 +19,15 @@ export class LoginFormComponent {
     private readonly trainerService: TrainerService
     ) { }
 
-  
-
-
   public loginSubmit(loginForm: NgForm): void {
     
-    //Get username
+    //Set username to input
     const {username} = loginForm.value;
 
+    //executing login
     this.loginService.login(username)
       .subscribe({
         next: (trainer: Trainer) => {
-          // Redirect to the trainer page.
           this.trainerService.trainer = trainer;
           this.login.emit();
         },
