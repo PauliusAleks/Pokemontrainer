@@ -3,6 +3,7 @@ import { Trainer } from 'src/app/models/trainer.model';
 import { LogoutService } from 'src/app/services/logout.service';
 import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.service';
 import { TrainerService } from 'src/app/services/trainer.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class TrainerPage implements OnInit {
   constructor(
     private readonly trainerService: TrainerService,
     private readonly pokemonCatalogueService: PokemonCatalogueService,
-    private readonly logoutService: LogoutService
+    private readonly logoutService: LogoutService,
+    private readonly router: Router
   ){ }
 
   get trainer(): Trainer | undefined {
@@ -51,8 +53,9 @@ export class TrainerPage implements OnInit {
 
   logout() {
     if(window.confirm("You will be logged out. Are you sure?")) {
+      this.trainerService.trainer = undefined;
       this.logoutService.logout()
-      window.location.reload();
+      this.router.navigateByUrl("/login")
     }
   }
 }
