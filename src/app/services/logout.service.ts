@@ -7,6 +7,7 @@ import { StorageKeys } from '../enums/storage-keys.enum';
 export class LogoutService {
   constructor() { }
 
+  //removes trainer from the sessionStorage
   logout(): void {
     sessionStorage.removeItem(StorageKeys.Trainer)
   }

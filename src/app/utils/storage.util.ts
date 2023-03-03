@@ -13,11 +13,12 @@ export class StorageUtil {
         sessionStorage.setItem(key, JSON.stringify(value));
     }
     
+    //Generic read storage function - returns storage item or undefined
     public static storageRead<T>(key: string): T | undefined {
-        const storedValue = sessionStorage.getItem(key);
+        const storedValue = sessionStorage.getItem(key); //gets item by key
         try {
-            if (storedValue) {
-                return JSON.parse(storedValue) as T;
+            if (storedValue) {//if not undefined
+                return JSON.parse(storedValue) as T;//return value in JSON
             }
             else {
                 return undefined;
@@ -40,6 +41,7 @@ export class StorageUtil {
     //     return this.httpClient.delete<Trainer>(apiUrl + `/${username}`, {headers})
     // }
 
+    //!!!!!!!!!!!!!!!!
     public static storageDelete<T>(key: string, username: string, httpClient: HttpClient, callback: () => void): void {
         const trainer = StorageUtil.storageRead<T>(key);
 
@@ -62,6 +64,9 @@ export class StorageUtil {
         }
         sessionStorage.removeItem(key)
     }
-    
+
+
 }
+    
+
 

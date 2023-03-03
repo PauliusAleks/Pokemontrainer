@@ -10,7 +10,7 @@ export class LoginPage{
 
   constructor(private readonly router: Router) {}
 
-
+  //Runs when login form is successfully completed
   handleLogin(): void {
     this.router.navigateByUrl("/pokemons")
   }

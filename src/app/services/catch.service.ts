@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { finalize, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Pokemon } from '../models/pokemon.model';
 import { Trainer } from '../models/trainer.model';
 import { PokemonCatalogueService } from './pokemon-catalogue.service';
 import { TrainerService } from './trainer.service';
@@ -32,7 +31,6 @@ export class CatchService {
 
     const trainer: Trainer = this.trainerService.trainer;
     const pokemon = this.pokemonCatalogueService.getPokemon(name)
-    // const poke: Pokemon | undefined = this.pokemonCatalogueService.getPokemonByName(name)
 
     if(!pokemon){
       throw new Error ("addPokemonToApi: No pokemon with name: " + name)
@@ -44,9 +42,6 @@ export class CatchService {
     else {
       this.trainerService.addToApi(name);
     }
-
-    
-
 
     const headers = new HttpHeaders({
       'content-type': 'application/json',
