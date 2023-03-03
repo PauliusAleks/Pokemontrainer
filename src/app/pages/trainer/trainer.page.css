@@ -1,0 +1,8 @@
+#logout-button, #delete-button {
+    text-align: center;
+    border: solid grey;
+    background-color: rgb(224, 219, 219);
+    width: 120px;
+    padding: 5px;
+    margin: 2px auto;
+  }

@@ -1,4 +1,13 @@
-<h1>Your Pokedex</h1>
-<!-- <h1>{{trainer.username}}'s Pokedex</h1> -->
+<div>
+    <header class="flex">
+        <h1 class="justify-center m-auto" *ngIf="trainer"><b>Hello {{trainer.username}}! Here are all you pokemons:</b></h1>
+        <button class="absolute right-5" id="logout-button" routerLink="/" (click)="logout()">Log out</button>
+        <button class="absolute left-5" id="delete-button" routerLink="/" (click)="removeTrainer()">Delete Trainer</button>
+    </header>
+    <main class="container mx-auto p-4">
+        <!-- <app-catch-button [pokemon]="pokemons"></app-catch-button> -->
+    </main>
+</div>>
+
 
 
